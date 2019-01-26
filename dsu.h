@@ -2,7 +2,7 @@
 #include <vector>
 
 /**
- * Disjoin-set-union data structure
+ * Disjoint-set-union data structure
  */
 class DSU {
 

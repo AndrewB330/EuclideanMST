@@ -50,7 +50,7 @@ private:
 // Implementation
 
 template<size_t DIM>
-KdTree<DIM>::KdTree<DIM>() {}
+KdTree<DIM>::KdTree() {}
 
 template<size_t DIM>
 KdTree<DIM>::KdTree(const std::vector<Point<DIM>> & points, size_t max_height) {
@@ -121,7 +121,7 @@ void KdTree<DIM>::build(size_t node_id, size_t start, size_t size, size_t remain
         return a[biggest] < b[biggest];
     });
 
-    // recursively call build for two part
+    // recursively call build for two parts
     build(node_id * 2, start, size / 2, remaining_height - 1);
     build(node_id * 2 + 1, start + size / 2, (size + 1) / 2, remaining_height - 1);
 }
