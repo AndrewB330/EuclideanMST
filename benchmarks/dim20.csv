@@ -1,0 +1,14 @@
+kd-tree,20,10,uniform,0.000020
+prim,20,10,uniform,0.000005
+kd-tree,20,50,uniform,0.000621
+prim,20,50,uniform,0.000076
+kd-tree,20,100,uniform,0.002770
+prim,20,100,uniform,0.000310
+kd-tree,20,500,uniform,0.067044
+prim,20,500,uniform,0.005408
+kd-tree,20,1000,uniform,0.243301
+prim,20,1000,uniform,0.020259
+kd-tree,20,5000,uniform,11.102134
+prim,20,5000,uniform,0.533273
+kd-tree,20,10000,uniform,47.100806
+prim,20,10000,uniform,2.325517

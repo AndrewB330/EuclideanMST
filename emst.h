@@ -26,7 +26,7 @@ protected:
 template<size_t DIM>
 class KdTreeSolver : public EmstSolver<DIM> {
 public:
-    KdTreeSolver(std::vector<Point<DIM>> & points) :num_points(points.size()) {
+    KdTreeSolver(const std::vector<Point<DIM>> & points) :num_points(points.size()) {
         dsu.reset(num_points);
         tree = KdTree<DIM>(points, static_cast<size_t>(floor(log2(num_points)) - 1));
         is_fully_connected.assign(tree.get_maximal_id() + 1, false);
@@ -141,7 +141,7 @@ private:
 template<size_t DIM>
 class PrimSolver : public EmstSolver<DIM> {
 public:
-    PrimSolver(std::vector<Point<DIM>> & points) {
+    PrimSolver(const std::vector<Point<DIM>> & points) {
         solve(points);
     }
 

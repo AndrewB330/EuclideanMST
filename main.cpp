@@ -7,7 +7,7 @@
 #include <memory>
 #include <string>
 #include "emst.h"
-
+#include "benchmark.h"
 using namespace std;
 
 template<size_t DIM>
