@@ -18,8 +18,8 @@ public:
     /**
      * Distance between two points
      */
-    template<size_t DIM>
-    friend double distance(const Point<DIM> & a, const Point<DIM> & b);
+    template<size_t DIM_>
+    friend double distance(const Point<DIM_> & a, const Point<DIM_> & b);
 
 private:
     double data[DIM];
@@ -66,8 +66,8 @@ public:
     /**
      * Distance between two bounding boxes
      */
-    template<size_t DIM>
-    friend double distance(const AABB<DIM> & a, const AABB<DIM> & b);
+    template<size_t DIM_>
+    friend double distance(const AABB<DIM_> & a, const AABB<DIM_> & b);
 
 private:
     Point<DIM> minimal;
