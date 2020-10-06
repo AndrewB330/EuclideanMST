@@ -3,7 +3,7 @@
 #include <vector>
 #include <limits>
 #include <memory>
-#include "model.h"
+#include "model.hpp"
 
 /**
  * K-d tree data structure

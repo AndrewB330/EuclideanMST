@@ -283,7 +283,7 @@ class DSU {
 
 public:
 
-    DSU(size_t n = 0);
+    explicit DSU(size_t n = 0);
 
     size_t get_set(size_t x) const;
     bool is_in_same_set(size_t x, size_t y) const;
@@ -341,7 +341,7 @@ typedef std::pair<size_t, size_t> Edge;
 template<size_t DIM>
 class EmstSolver {
 public:
-    EmstSolver() {}
+    EmstSolver() = default;
 
     const std::vector<Edge> & get_solution() const { return solution; }
     const double & get_total_length() const { return total_length; }
@@ -359,7 +359,7 @@ protected:
 template<size_t DIM>
 class KdTreeSolver : public EmstSolver<DIM> {
 public:
-    KdTreeSolver(const std::vector<Point<DIM>> & points) :num_points(points.size()) {
+    explicit KdTreeSolver(const std::vector<Point<DIM>> & points) :num_points(points.size()) {
         dsu.reset(num_points);
         tree = KdTree<DIM>(points, static_cast<size_t>(floor(log2(num_points)) - 1));
         is_fully_connected.assign(tree.get_maximal_id() + 1, false);
@@ -474,7 +474,7 @@ private:
 template<size_t DIM>
 class PrimSolver : public EmstSolver<DIM> {
 public:
-    PrimSolver(const std::vector<Point<DIM>> & points) {
+    explicit PrimSolver(const std::vector<Point<DIM>> & points) {
         solve(points);
     }
 

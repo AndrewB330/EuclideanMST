@@ -1,19 +1,16 @@
 #include <iomanip>
 #include <iostream>
 #include <fstream>
-#include <algorithm>
 #include <vector>
-#include <limits>
 #include <memory>
 #include <string>
-#include "emst.h"
-#include "benchmark.h"
+#include "emst/emst.hpp"
 using namespace std;
 
 template<size_t DIM>
 void example() {
 
-    fstream fin("test_data/dim" + to_string(DIM) + ".txt");
+    fstream fin("../test_data/dim" + to_string(DIM) + ".txt");
     size_t n; fin >> n;
     vector<Point<DIM>> points(n);
     for (size_t i = 0; i < n; i++) {

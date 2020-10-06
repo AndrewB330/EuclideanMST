@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <cassert>
 #include <chrono>
-#include "emst.h"
+#include "emst.hpp"
 using namespace std::chrono;
 
 double uniform() {
@@ -43,7 +43,7 @@ struct BenchmarkResult {
 
 template<typename EmstSolverType, size_t DIM>
 BenchmarkResult run_benchmark(const std::vector<Point<DIM>> & points, size_t samples = 1) {
-    BenchmarkResult result;
+    BenchmarkResult result{};
     auto start = std::chrono::system_clock::now();
     for (size_t i = 0; i < samples; i++) {
         EmstSolverType solver(points);
@@ -57,7 +57,7 @@ BenchmarkResult run_benchmark(const std::vector<Point<DIM>> & points, size_t sam
 }
 
 template<size_t DIM>
-void run_becnhmarks(const std::vector<Point<DIM>> & points, size_t samples, std::ostream & cout, std::string distribution = "none") {
+void run_benchmark(const std::vector<Point<DIM>> & points, size_t samples, std::ostream & cout, const std::string& distribution = "none") {
     auto result_kd = run_benchmark<KdTreeSolver<DIM>, DIM>(points, samples);
     auto result_prim = (points.size() < 100000 ? run_benchmark<PrimSolver<DIM>, DIM>(points, samples / 50 + 1) : BenchmarkResult{ result_kd.answer, 0 });
 
@@ -71,15 +71,15 @@ void run_becnhmarks(const std::vector<Point<DIM>> & points, size_t samples, std:
 
 template<size_t DIM>
 void run_becnhmarks(std::ostream & cout) {
-    run_becnhmarks<DIM>(generate_points_uniform<DIM>(10), 100, cout, "uniform");
-    run_becnhmarks<DIM>(generate_points_uniform<DIM>(50), 100, cout, "uniform");
-    run_becnhmarks<DIM>(generate_points_uniform<DIM>(100), 1, cout, "uniform");
-    run_becnhmarks<DIM>(generate_points_uniform<DIM>(500), 1, cout, "uniform");
-    run_becnhmarks<DIM>(generate_points_uniform<DIM>(1000), 1, cout, "uniform");
-    run_becnhmarks<DIM>(generate_points_uniform<DIM>(5000), 1, cout, "uniform");
-    run_becnhmarks<DIM>(generate_points_uniform<DIM>(10000), 1, cout, "uniform");
-    run_becnhmarks<DIM>(generate_points_uniform<DIM>(50000), 1, cout, "uniform");
-    /*run_becnhmarks<DIM>(generate_points_uniform<DIM>(100000), 1, cout, "uniform");
-    run_becnhmarks<DIM>(generate_points_uniform<DIM>(1000000), 1, cout, "uniform");
-    run_becnhmarks<DIM>(generate_points_uniform<DIM>(10000000), 1, cout, "uniform");*/
+    run_benchmark<DIM>(generate_points_uniform<DIM>(10), 100, cout, "uniform");
+    run_benchmark<DIM>(generate_points_uniform<DIM>(50), 100, cout, "uniform");
+    run_benchmark<DIM>(generate_points_uniform<DIM>(100), 1, cout, "uniform");
+    run_benchmark<DIM>(generate_points_uniform<DIM>(500), 1, cout, "uniform");
+    run_benchmark<DIM>(generate_points_uniform<DIM>(1000), 1, cout, "uniform");
+    run_benchmark<DIM>(generate_points_uniform<DIM>(5000), 1, cout, "uniform");
+    run_benchmark<DIM>(generate_points_uniform<DIM>(10000), 1, cout, "uniform");
+    run_benchmark<DIM>(generate_points_uniform<DIM>(50000), 1, cout, "uniform");
+    /*run_benchmark<DIM>(generate_points_uniform<DIM>(100000), 1, cout, "uniform");
+    run_benchmark<DIM>(generate_points_uniform<DIM>(1000000), 1, cout, "uniform");
+    run_benchmark<DIM>(generate_points_uniform<DIM>(10000000), 1, cout, "uniform");*/
 }
