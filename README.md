@@ -3,10 +3,11 @@
 [![Generic badge](https://img.shields.io/badge/C++-Brightgreen.svg)](https://github.com/AndrewB330/)
 ![XLOCC](https://europe-west6-xlocc-badge.cloudfunctions.net/XLOCC/AndrewB330/EuclideanMST?caption=Lines&color=blue&ifiles=standalone_header&kill_cache=1)
 
-Implementations of different algorithms for building Euclidean minimum spanning tree in k-dimensional space.
+Implementations of different algorithms for building [Euclidean minimum spanning tree](https://en.wikipedia.org/wiki/Euclidean_minimum_spanning_tree) in k-dimensional space.
 ### Algorithms:
   - EMST using Kd-tree __O(NlogN)__*
   	- Implementation of algorithm described in "Fast Euclidean Minimum Spanning Tree: Algorithm, Analysis, 	and Applications. William B. March, Parikshit Ram, Alexander G. Gray"*
+    - For higher dimensions (5D and more) and small number of points it can work even slower than Prim's algorithm*
   - Prim's algorithm __O(N^2)__
     - Straightforward MST on fully connected Euclidean graph
 
