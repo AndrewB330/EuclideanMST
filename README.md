@@ -1,14 +1,22 @@
 # EuclideanMST
+
+[![Generic badge](https://img.shields.io/badge/C++-Brightgreen.svg)](https://github.com/AndrewB330/)
+![XLOCC](https://europe-west6-xlocc-badge.cloudfunctions.net/XLOCC/AndrewB330/EuclideanMST?caption=Lines&color=blue&ifiles=standalone_header&kill_cache=1)
+
 Implementations of different algorithms for building Euclidean minimum spanning tree in k-dimensional space.
 ### Algorithms:
   - EMST using Kd-tree __O(NlogN)__*
   	- Implementation of algorithm described in "Fast Euclidean Minimum Spanning Tree: Algorithm, Analysis, 	and Applications. William B. March, Parikshit Ram, Alexander G. Gray"*
   - Prim's algorithm __O(N^2)__
-    - Straightforward MST on fully connected Eclidean graph
+    - Straightforward MST on fully connected Euclidean graph
 
-### Build
-
-```>>> g++ main.cpp -o main```
+### How to add to your project
+You can use standalone header file from `standalone_header/` folder, or you can
+add this project as a CMake subdirectory:
+```cmake
+add_subdirectory(EuclideanMST)
+target_link_libraries(<TARGET_NAME> EuclideanMST)
+```
 
 ### How to use
 
@@ -27,14 +35,15 @@ Implementations of different algorithms for building Euclidean minimum spanning 
 
 ### Benchmarks:
 
-| Dimensions        | Number of points | Kd-tree (sec)  | Prim (sec) |
-| -------------: |-------------:| -----:| ----:|
-| 2      | 50000 	| 0.24 	| 29.0 		|
-| 3      | 50000 	| 0.67 	| 32.0 		|
-| 4      | 50000 	| 1.59 	| 36.0 		|
-| 2      | 10000000 | 69.0 	| ~1000000 	|
-| 3      | 10000000 | 186.0 | ~1300000 	|
-| 4      | 10000000 | 673.9 | ~1500000 	|
+| Dimensions | Number of points | Kd-tree | Prim |
+| -----: |-----------:| -----------:| -------------:|
+| 2      | 50'000 	  | 0.24 sec 	| 29.0 sec 		|
+| 3      | 50'000 	  | 0.67 sec 	| 32.0 sec 		|
+| 4      | 50'000 	  | 1.59 sec 	| 36.0 sec 		|
+| 2      | 10'000'000 | 69.0 sec 	| ~10+ days 	|
+| 3      | 10'000'000 | 186.0 sec   | ~13+ days 	|
+| 4      | 10'000'000 | 673.9 sec   | ~15+ days 	|
+| 5      | 180'000 	  | 15.3 sec 	| ~300+ sec     |
 
 ### Contribution
 __Very appreciated__
@@ -43,4 +52,5 @@ __Very appreciated__
 - Implement EMST using Cover-tree
 - More use-cases
 - Online-solver
-- \dots
+- Parallel implementation using OMP (actually had some experiments here, this algorithm can be parallelized quite well)
+- Other...
