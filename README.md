@@ -1,7 +1,7 @@
 # EuclideanMST
 
 [![Generic badge](https://img.shields.io/badge/C++-Brightgreen.svg)](https://github.com/AndrewB330/)
-![XLOCC](https://europe-west6-xlocc-badge.cloudfunctions.net/XLOCC/AndrewB330/EuclideanMST?caption=Lines&color=blue&ifiles=standalone_header&kill_cache=1)
+<!--![XLOCC](https://europe-west6-xlocc-badge.cloudfunctions.net/XLOCC/AndrewB330/EuclideanMST?caption=Lines&color=blue&ifiles=standalone_header&kill_cache=1)-->
 
 Implementations of different algorithms for building [Euclidean minimum spanning tree](https://en.wikipedia.org/wiki/Euclidean_minimum_spanning_tree) in k-dimensional space.
 ### Algorithms:
